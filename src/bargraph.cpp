@@ -4,11 +4,8 @@
 #include "ddaAlgorithm.cpp"
 using namespace std;
 
-
-
-
 // Function to draw the bar chart
-void drawBarChart(int data[], string labels[], int n) {
+void drawBarChart(int data[], string labels[], int n, string title, string yAxisLabel, string xAxisLabel) {
     int barWidth = 50; // width of each bar
     int spaceBetweenBars = 10; // space between each bar
     int originX = 100, originY = 400; // origin of the graph
@@ -56,6 +53,20 @@ void drawBarChart(int data[], string labels[], int n) {
         strcpy(labelBuffer, labels[i].c_str());
         outtextxy(originX + i * (barWidth + spaceBetweenBars) + barWidth / 3, originY + 10, labelBuffer);
     }
+
+    // **Add Title and Axis Labels from user input**
+    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 3); 
+    outtextxy(originX + (n * (barWidth + spaceBetweenBars)) / 3, originY - maxHeight - 60, const_cast<char*>(title.c_str()));
+    // Title
+  
+    // For vertical Y-Axis label
+    settextstyle(SIMPLEX_FONT, VERT_DIR, 2);  // VERT_DIR for vertical text
+    outtextxy(originX - 70, originY - maxHeight / 2 + 30, const_cast<char*>(yAxisLabel.c_str())); // Y-Axis Label moved down
+
+
+    // For horizontal X-Axis label
+    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 2); // HORIZ_DIR for horizontal text
+    outtextxy(originX + (n * (barWidth + spaceBetweenBars)) / 3, originY + 40, const_cast<char*>(xAxisLabel.c_str())); // X-Axis Label
 }
 
 void bargraph() {
@@ -76,7 +87,16 @@ void bargraph() {
         cout << "Label " << i + 1 << ": ";
         cin >> labels[i];
     }
+    
+    // **User input for the title, Y-axis label, and X-axis label**
+    string title, yAxisLabel, xAxisLabel;
+    cout << "Enter the title for the chart: ";
+    cin.ignore(); // to clear the input buffer
+    getline(cin, title); // To allow space in title
+    cout << "Enter the label for Y-axis: ";
+    getline(cin, yAxisLabel); // To allow space in label
+    cout << "Enter the label for X-axis: ";
+    getline(cin, xAxisLabel); // To allow space in label
 
-    drawBarChart(data, labels, n);
+    drawBarChart(data, labels, n, title, yAxisLabel, xAxisLabel);
 }
-
