@@ -30,12 +30,16 @@ int main() {
 
         switch (choice) {
             case 1:
+               cleardevice();
                bargraph();
                 break;
             case 2:
-             
+                cleardevice();  
+                pie_chart();
                 break;
             case 3:
+                cleardevice();
+                // line_graph();
                // Calls the function to draw line graph
                 break;
             case 4:
