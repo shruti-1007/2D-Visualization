@@ -12,30 +12,21 @@ void drawLine(int xc,int yc,int angle,int radius)
 	line(xc,yc,x,y);
 }
 //Function to draw PieChart
-void drawPiechart(int xc,int yc,int radius,int percentage[20],int n)
-{
-	drawCircle(xc,yc,radius);
-	int startAngle=0;
-	for(int i=0;i<n;i++)
-	{
-		int sweepAngle=percentage[i]*360/100;
-		setcolor(i+1);
-		//To draw line for pie slices
-		drawLine(xc,yc,startAngle,radius);
-		drawLine(xc,yc,startAngle+sweepAngle,radius);
-		//Fill pie slices with different color
-		for(int angle=startAngle; angle<startAngle+sweepAngle; angle++)
-		{
-			for(int r=0; r<radius; r++ )
-			{
-				int x=xc+r*cos(angle*PI/180);
-				int y=yc-r*sin(angle*PI/180);
-				putpixel(x,y,i+1);
-			}
-		
-		}
-		startAngle+=sweepAngle;
-	}
+void drawPiechart(int xc, int yc, int radius, int percentage[], int n) {
+    int startAngle = 0;
+
+    for (int i = 0; i < n; i++) {
+        int sweepAngle = (percentage[i] * 360) / 100;
+
+        // Set color for each slice
+        setfillstyle(SOLID_FILL, i + 1);
+        setcolor(WHITE);
+
+        // Use sector() to draw and fill the slice directly
+        sector(xc, yc, startAngle, startAngle + sweepAngle, radius, radius);
+
+        startAngle += sweepAngle; // Move to the next slice
+    }
 }
 void pie_chart()
 {
