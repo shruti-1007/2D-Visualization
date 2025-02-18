@@ -33,7 +33,7 @@ int main() {
                bargraph();
                 break;
             case 2:
-             
+                pie_chart();
                 break;
             case 3:
                // Calls the function to draw line graph
