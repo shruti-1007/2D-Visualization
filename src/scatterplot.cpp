@@ -5,7 +5,7 @@
 #include <vector>
 #include "bresenham.h"
 #include "midpointcircle.h"
-#include "floodfill.cpp"
+#include "floodfill.h"
 using namespace std;
 
 void scatterPlot() {

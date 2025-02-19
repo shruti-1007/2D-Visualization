@@ -1,5 +1,5 @@
 #include <graphics.h> // Ensure graphics.h is included in your project
-
+#include "floodfill.h"
 // Flood Fill Algorithm (4-connected)
 void floodFill(int x, int y, int fillColor, int borderColor) {
     // Get the color of the current pixel
