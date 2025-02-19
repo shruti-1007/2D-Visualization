@@ -5,6 +5,6 @@ struct Point {
     int x, y;
 };
 
-void bresenhamLine(Point P1, Point P2);
+void bresenhamLine(int x1, int y1, int x2, int y2, int color);
 
 #endif

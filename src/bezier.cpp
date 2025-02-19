@@ -44,7 +44,7 @@ void drawControlPoints(vector<Point>& controlPoints) {
     setcolor(GREEN);
     for (size_t i = 0; i < controlPoints.size() - 1; i++) {
         // Passing two Point objects directly to Bresenham's line function
-        bresenhamLine(controlPoints[i].x, controlPoints[i].y, controlPoints[i + 1].x, controlPoints[i + 1].y);
+        bresenhamLine(controlPoints[i].x, controlPoints[i].y, controlPoints[i + 1].x, controlPoints[i + 1].y, GREEN);
     }
 }
 

@@ -3,6 +3,7 @@
 #include "bargraph.cpp"
 #include "bezier.cpp"
 #include "pie_chart.cpp"
+#include "scatterplot.cpp"
 // #include "line_graph.cpp"
 // #include "transformations.cpp"
 // #include "export.cpp"
@@ -45,7 +46,8 @@ int main() {
                // Calls the function to draw line graph
                 break;
             case 4:
-                
+                cleardevice();
+                scatterPlot();
                 break;
             case 5:
                 cleardevice();
@@ -54,7 +56,9 @@ int main() {
             default:
                 cout << "Invalid choice, try again." << endl;
         }
-    } while (choice != 4);
+    } while (choice != 6);
 
+ closegraph();
+ getch();
     return 0;
 }

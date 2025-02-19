@@ -5,7 +5,7 @@
 using namespace std;
 #include "bresenham.h"
 // Bresenham's line drawing algorithm
- void bresenhamLine(int x1, int y1, int x2, int y2) {
+ void bresenhamLine(int x1, int y1, int x2, int y2, int color){
     int dx = abs(x2 - x1);
     int dy = abs(y2 - y1);
     int sx = x1 < x2 ? 1 : -1;
@@ -13,7 +13,7 @@ using namespace std;
     int err = dx - dy;
 
     while (true) {
-        putpixel(x1, y1, BLUE);  // Plot the pixel at the current point
+        putpixel(x1, y1, color);  // Plot the pixel at the current point
 
         if (x1 == x2 && y1 ==y2) break;  // Exit condition
 
