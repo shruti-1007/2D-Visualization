@@ -1,3 +1,4 @@
+#include <graphics.h>
 void drawCircle(int xc,int yc,int r)
 {
 	int x=0,y=r;
