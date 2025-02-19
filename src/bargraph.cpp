@@ -55,7 +55,7 @@ void drawBarChart(int data[], string labels[], int n, string title, string yAxis
     }
 
     // **Add Title and Axis Labels from user input**
-    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 3); 
+    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 2); 
     outtextxy(originX + (n * (barWidth + spaceBetweenBars)) / 3, originY - maxHeight - 60, const_cast<char*>(title.c_str()));
     // Title
   

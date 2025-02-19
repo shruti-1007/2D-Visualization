@@ -24,10 +24,11 @@ void lineGraph() {
     cin >> x_label;
     cout << "Enter the y-axis label: ";
     cin >> y_label;
-    char title[100];
+    char title[1000];
     cout << "Enter the title of the line graph: ";
-    cin.ignore();  // To clear the newline from previous input
-    cin.getline(title, 100);
+    cin.ignore();  // Clear the input buffer
+    cin.getline(title, 1000);  // Get the title correctly
+    
 
     // Find min and max values for scaling
     int x_min = points[0].x, x_max = points[0].x, y_min = points[0].y, y_max = points[0].y;
