@@ -1,7 +1,7 @@
 #include <graphics.h>
 #include <iostream>
 #include "bargraph.cpp"
-
+#include "bezier.cpp"
 #include "pie_chart.cpp"
 // #include "line_graph.cpp"
 // #include "transformations.cpp"
@@ -14,7 +14,9 @@ void displayMenu() {
     cout << "1. Bar Chart" << endl;
     cout << "2. Pie Chart" << endl;
     cout << "3. Line Graph" << endl;
-    cout << "4. Exit" << endl;
+    cout << "4. Scatter Plot" << endl;
+    cout << "5. Bezier Curve" << endl;
+    cout << "6. Exit" << endl;
 }
 
 int main() {
@@ -43,7 +45,11 @@ int main() {
                // Calls the function to draw line graph
                 break;
             case 4:
-                cout << "Exiting..." << endl;
+                
+                break;
+            case 5:
+                cleardevice();
+                drawBezier();
                 break;
             default:
                 cout << "Invalid choice, try again." << endl;
