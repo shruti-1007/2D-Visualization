@@ -11,7 +11,7 @@ void drawPiechart(int xc, int yc, int radius, double percentage[], string catego
 
     // Draw the pie slices
     for (int i = 0; i < n; i++) {
-        int sweepAngle = round((percentage[i] * 360) / 100);  // Correct percentage calculation
+        int sweepAngle = round((percentage[i] * 360) / 100); 
 
         // Set color for each slice
         setfillstyle(SOLID_FILL, i + 1);
@@ -66,7 +66,7 @@ void pie_chart() {
         total += data[i];
     }
 
-    // Calculate percentage properly with floating-point division
+    // Calculate percentage with floating-point division
     double sumPercentage = 0;
     for (int j = 0; j < n; j++) {
         percentage[j] = (double)data[j] * 100.0 / total;  // Use double to avoid rounding issues

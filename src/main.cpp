@@ -7,9 +7,6 @@
 #include "line_graph.cpp"
 #include "3dpie.cpp"
 
-// #include "transformations.cpp"
-// #include "export.cpp"
-
 using namespace std;
 
 void displayMenu() {
@@ -62,8 +59,8 @@ int main() {
                 break;
             case 3:
                 cleardevice();
-                 lineGraph();
-               // Calls the function to draw line graph
+                lineGraph();
+    
                 break;
             case 4:
                 cleardevice();
@@ -83,5 +80,5 @@ int main() {
 
  closegraph();
  getch();
-    return 0;
+ return 0;
 }

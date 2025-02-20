@@ -51,16 +51,14 @@ void lineGraph() {
     setcolor(BLACK);
     bresenhamLine(left_margin, bottom_margin, right_margin, bottom_margin, BLACK); // X-Axis
     bresenhamLine(left_margin, bottom_margin, left_margin, top_margin, BLACK); // Y-Axis
-
+   
+    //Set X and Y axis labels
     setcolor(GREEN);
-    // Set Y-axis label (Vertical)
+
     settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
     outtextxy(left_margin - 70, (top_margin + bottom_margin) / 2, y_label);
 
-    // Reset text style for normal text
     settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
-
-    // Set X-axis label (Centered)
     outtextxy((left_margin + right_margin) / 2, bottom_margin + 40, x_label);
 
     // Display title at the top-center
@@ -127,6 +125,6 @@ void lineGraph() {
 
         // Draw the point (Circle) on the graph
         drawCircle(screen_x, screen_y, 3, BLUE);
-        floodFill(screen_x, screen_y, GREEN, BLUE); // Optional, to fill inside the circle
+        floodFill(screen_x, screen_y, GREEN, BLUE); 
     }
 }

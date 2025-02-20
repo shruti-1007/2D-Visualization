@@ -25,9 +25,9 @@ void scatterPlot() {
     cout << "Enter the y-axis label: ";
     cin >> y_label;
     char title[100];
-cout << "Enter the title of the scatter plot: ";
-cin.ignore();  // To clear the newline from previous input
-cin.getline(title, 100);
+    cout << "Enter the title of the scatter plot: ";
+    cin.ignore();  // To clear the newline from previous input
+    cin.getline(title, 100);
 
 
     // Find min and max values for scaling
@@ -52,44 +52,40 @@ cin.getline(title, 100);
     bresenhamLine(left_margin, bottom_margin, right_margin, bottom_margin, BLACK); // X-Axis
     bresenhamLine(left_margin, bottom_margin, left_margin, top_margin, BLACK); // Y-Axis
 
+    //X-Axis and Y-Axis Label
     setcolor(GREEN);
-   // Set Y-axis label (Vertical)
-settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
-outtextxy(left_margin - 70, (top_margin + bottom_margin) / 2, y_label);
+    settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
+    outtextxy(left_margin - 70, (top_margin + bottom_margin) / 2, y_label);
 
-// Reset text style for normal text
-settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
-
-// Set X-axis label (Centered)
-outtextxy((left_margin + right_margin) / 2, bottom_margin + 40, x_label);
-    // Y-Axis Label
+    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
+    outtextxy((left_margin + right_margin) / 2, bottom_margin + 40, x_label);
 
     // Display title at the top-center
     setcolor(BLACK);
     settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 2);
-
     outtextxy(getmaxx() / 2 - textwidth(title) / 2, top_margin - 40, title);
-// Draw X and Y axis ticks and labels
-for (int i = 0; i <= 10; i++) {
-    settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 1);
-    int x_tick = left_margin + (i * plot_width / 10);
-    int y_tick = bottom_margin;
-    line(x_tick, y_tick, x_tick, y_tick + 10);
+   
+    // Draw X and Y axis ticks and labels
+    for (int i = 0; i <= 10; i++) {
+        settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 1);
+        int x_tick = left_margin + (i * plot_width / 10);
+        int y_tick = bottom_margin;
+        line(x_tick, y_tick, x_tick, y_tick + 10);
 
-    char label[10];
-    sprintf(label, "%d", x_min + i * (x_max - x_min) / 10);
-    outtextxy(x_tick - textwidth(label) / 2, y_tick + 25, label); // Moved 5 more down
-}
+        char label[10];
+        sprintf(label, "%d", x_min + i * (x_max - x_min) / 10);
+        outtextxy(x_tick - textwidth(label) / 2, y_tick + 25, label); // Moved 5 more down
+    }
 
-for (int i = 0; i <= 10; i++) {
-    int x_tick = left_margin;
-    int y_tick = bottom_margin - (i * plot_height / 10);
-    line(x_tick, y_tick, x_tick - 10, y_tick);
+    for (int i = 0; i <= 10; i++) {
+        int x_tick = left_margin;
+        int y_tick = bottom_margin - (i * plot_height / 10);
+        line(x_tick, y_tick, x_tick - 10, y_tick);
 
-    char label[10];
-    sprintf(label, "%d", y_min + i * (y_max - y_min) / 10);
-    outtextxy(x_tick - 20, y_tick - 10, label); // Y-tick labels remain in the same place
-}
+        char label[10];
+        sprintf(label, "%d", y_min + i * (y_max - y_min) / 10);
+        outtextxy(x_tick - 20, y_tick - 10, label); 
+    }
 
 
     // Plot points on the graph

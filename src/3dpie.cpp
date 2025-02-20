@@ -3,11 +3,14 @@
 #include <math.h>
 #include <iostream>
 #include <string>
+#include "transformations.cpp"
 using namespace std;
 
 #define M_PI 3.14159265358979323846
 
-// Function to draw the pie chart with an elliptical transformation for 3D effect
+
+
+// Function to draw the pie chart with an elliptical transformation
 void draw_elliptical_pie_chart(int values[], string categories[], int n, int cx, int cy, int radius) {
     int total = 0;
     for (int i = 0; i < n; i++) {
@@ -16,6 +19,8 @@ void draw_elliptical_pie_chart(int values[], string categories[], int n, int cx,
 
     int start_angle = 0;
     int depth = 20;  // Height of the 3D effect
+    float shearX = 0.1;  // Adjust to control the horizontal stretch
+    float shearY = 0.1;  // Adjust to control the vertical stretch
 
     for (int i = 0; i < n; i++) {
         int angle = (values[i] * 360) / total;
@@ -26,6 +31,9 @@ void draw_elliptical_pie_chart(int values[], string categories[], int n, int cx,
         for (int theta = start_angle; theta < start_angle + angle; theta++) {
             float x = cx + radius * cos(theta * M_PI / 180);
             float y = cy + radius * sin(theta * M_PI / 180);
+
+            // Apply shear transformation to create an elliptical shape
+            shearPoint(x, y, shearX, shearY, cx);
 
             // Draw depth for 3D effect
             for (int j = 1; j <= depth; j++) {
@@ -83,7 +91,6 @@ void Draw3dpie() {
     }
 
 
-
     setbkcolor(BLACK);
     cleardevice();
 
@@ -94,7 +101,7 @@ void Draw3dpie() {
     setcolor(WHITE);
     outtextxy(cx - 100, cy - radius - 50, (char*)title.c_str()); // Moved title slightly up
 
-    // Draw the 3D Pie Chart
+    // Draw the 3D Elliptical Pie Chart
     draw_elliptical_pie_chart(values, categories, n, cx, cy, radius);
 
     // Draw legend on the right side of the pie chart
@@ -103,4 +110,5 @@ void Draw3dpie() {
 
     draw_legend(categories, n, legend_x, legend_y);
 
+   
 }

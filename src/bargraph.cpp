@@ -6,12 +6,12 @@
 using namespace std;
 
 
-// Function to draw the bar chart
+
 void drawBarChart(int data[], string labels[], int n, string title, string yAxisLabel, string xAxisLabel) {
-    int barWidth = 50; // Width of each bar
-    int spaceBetweenBars = 10; // Space between bars
-    int originX = 100, originY = 400; // Origin of the graph
-    int maxHeight = 300; // Maximum height of the bars (for scaling)
+    int barWidth = 50; 
+    int spaceBetweenBars = 10; 
+    int originX = 100, originY = 400; 
+    int maxHeight = 300; // 
 
     // Draw the X and Y axes using DDA
     drawDdaLine(originX, originY, originX + (n * (barWidth + spaceBetweenBars)), originY, BLACK); // X-Axis
@@ -37,10 +37,10 @@ void drawBarChart(int data[], string labels[], int n, string title, string yAxis
         drawDdaLine(x1, y2, x2, y2, BLACK);  // Top edge
 
         // Apply Boundary Fill
-        int fillX = (x1 + x2) / 2;  // Seed point inside the bar
+        int fillX = (x1 + x2) / 2;  
         int fillY = (y1 + y2) / 2;
-        boundaryFill(fillX, fillY, GREEN, BLACK); // Filling the bar with green
-
+        boundaryFill(fillX, fillY, GREEN, BLACK);
+        
         // Display data on top of bars
         char value[10];
         sprintf(value, "%d", data[i]);

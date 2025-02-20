@@ -2,10 +2,10 @@
 #include <math.h>
 
 
-void skewPoint(float &x, float &y, float skewFactorX, float skewFactorY, float cx) {
+void shearPoint(float &x, float &y, float shearX, float shearY, float cx) {
     // Apply skew transformation
-    float newX = x + skewFactorX * (y - cx);  // Keep the center aligned
-    float newY = y + skewFactorY * x;
+    float newX = x + shearX * (y - cx);  // Keep the center aligned
+    float newY = y + shearY * x;
 
     x = newX;
     y = newY;
