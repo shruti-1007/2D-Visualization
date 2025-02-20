@@ -5,6 +5,7 @@
 #include "pie_chart.cpp"
 #include "scatterplot.cpp"
 #include "line_graph.cpp"
+#include "3dpie.cpp"
 
 // #include "transformations.cpp"
 // #include "export.cpp"
@@ -38,8 +39,26 @@ int main() {
                bargraph();
                 break;
             case 2:
+                int choice2;
                 cleardevice();  
-                pie_chart();
+                cout<<"1.2D Pie Chart \n2.3D Pie Chart"<<endl;
+                cin>>choice2;
+                if(choice2==1)
+                {
+                    cleardevice();
+                    pie_chart();
+                }
+                else if(choice2==2)
+                {
+
+                    setbkcolor(BLACK);
+                    cleardevice();
+                    Draw3dpie();
+                }
+                else
+                {
+                    cout<<"Invalid choice"<<endl;
+                }
                 break;
             case 3:
                 cleardevice();
@@ -54,10 +73,13 @@ int main() {
                 cleardevice();
                 drawBezier();
                 break;
+            case 6:
+                cout << "Exiting..." << endl;
+                break;
             default:
                 cout << "Invalid choice, try again." << endl;
         }
-    } while (choice != 6);
+    } while (choice != 7);
 
  closegraph();
  getch();
