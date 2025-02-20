@@ -1,6 +1,8 @@
 #include <graphics.h>
 #include <iostream>
 #include <string>
+#include <cmath>
+#include <algorithm>
 #include "Algorithms/ddaAlgorithm.cpp"
 #include "Algorithms/boundaryfill.cpp"
 using namespace std;
@@ -8,10 +10,19 @@ using namespace std;
 
 
 void drawBarChart(int data[], string labels[], int n, string title, string yAxisLabel, string xAxisLabel) {
-    int barWidth = 50; 
-    int spaceBetweenBars = 10; 
-    int originX = 100, originY = 400; 
-    int maxHeight = 300; // 
+    int originX = 100, originY = 400;
+    int maxHeight = 300;
+    int maxWidth = 600; // Maximum width for the bars
+
+    // Adjust bar width and spacing dynamically
+    int barWidth = maxWidth / (n * 1.5);
+if (barWidth > 50) {
+    barWidth = 50;
+} else if (barWidth < 20) {
+    barWidth = 20;
+}
+
+    int spaceBetweenBars = barWidth / 4;
 
     // Draw the X and Y axes using DDA
     drawDdaLine(originX, originY, originX + (n * (barWidth + spaceBetweenBars)), originY, BLACK); // X-Axis
@@ -37,10 +48,10 @@ void drawBarChart(int data[], string labels[], int n, string title, string yAxis
         drawDdaLine(x1, y2, x2, y2, BLACK);  // Top edge
 
         // Apply Boundary Fill
-        int fillX = (x1 + x2) / 2;  
+        int fillX = (x1 + x2) / 2;
         int fillY = (y1 + y2) / 2;
         boundaryFill(fillX, fillY, GREEN, BLACK);
-        
+
         // Display data on top of bars
         char value[10];
         sprintf(value, "%d", data[i]);
@@ -53,7 +64,7 @@ void drawBarChart(int data[], string labels[], int n, string title, string yAxis
         strcpy(labelBuffer, labels[i].c_str());
         outtextxy(originX + i * (barWidth + spaceBetweenBars) + barWidth / 3, originY + 10, labelBuffer);
     }
-
+     setcolor(BLACK);
     // Add Title and Axis Labels
     settextstyle(SIMPLEX_FONT, HORIZ_DIR, 2);
     outtextxy(originX + (n * (barWidth + spaceBetweenBars)) / 3, originY - maxHeight - 60, const_cast<char*>(title.c_str()));

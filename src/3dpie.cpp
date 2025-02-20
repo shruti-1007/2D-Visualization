@@ -51,19 +51,24 @@ void draw_elliptical_pie_chart(int values[], string categories[], int n, int cx,
 void draw_legend(string categories[], int n, int legend_x, int legend_y) {
     int box_size = 15;  // Size of color boxes
     int spacing = 25;   // Spacing between legend entries
+    int total_height = n * spacing;  // Total height for the legend items
+
+    // Adjust the starting y-coordinate to center the legend vertically
+    int offset_y = (getmaxy() - total_height) / 2;
 
     for (int i = 0; i < n; i++) {
         int color = i + 1;
         
         // Draw color box
         setfillstyle(SOLID_FILL, color);
-        bar(legend_x, legend_y + i * spacing, legend_x + box_size, legend_y + i * spacing + box_size);
+        bar(legend_x, legend_y + offset_y + i * spacing, legend_x + box_size, legend_y + offset_y + i * spacing + box_size);
         
         // Draw text beside the color box
         setcolor(WHITE);
-        outtextxy(legend_x + box_size + 10, legend_y + i * spacing + 3, (char*)categories[i].c_str());
+        outtextxy(legend_x + box_size + 10, legend_y + offset_y + i * spacing + 3, (char*)categories[i].c_str());
     }
 }
+
 
 // Function to draw a 3D Pie Chart
 void Draw3dpie() {

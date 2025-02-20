@@ -3,6 +3,7 @@
 #include <cmath>
 #include <conio.h>
 #include <vector>
+#include <string>
 #include "Algorithms/bresenham.h"
 #include "Algorithms/midpointcircle.h"
 #include "Algorithms/floodfill.h"
@@ -19,16 +20,15 @@ void scatterPlot() {
         cin >> points[i].x >> points[i].y;
     }
 
-    char x_label[50], y_label[50];
-    cout << "Enter the x-axis label: ";
-    cin >> x_label;
-    cout << "Enter the y-axis label: ";
-    cin >> y_label;
-    char title[100];
-    cout << "Enter the title of the scatter plot: ";
-    cin.ignore();  // To clear the newline from previous input
-    cin.getline(title, 100);
+    cin.ignore(); // To clear any leftover newline characters
 
+    string x_label, y_label, title;
+    cout << "Enter the x-axis label: ";
+    getline(cin, x_label);
+    cout << "Enter the y-axis label: ";
+    getline(cin, y_label);
+    cout << "Enter the title of the scatter plot: ";
+    getline(cin, title);
 
     // Find min and max values for scaling
     int x_min = points[0].x, x_max = points[0].x, y_min = points[0].y, y_max = points[0].y;
@@ -47,24 +47,35 @@ void scatterPlot() {
     int plot_width = right_margin - left_margin;
     int plot_height = bottom_margin - top_margin;
 
-    // Draw X and Y axes using DDA algorithm
+    // Draw X and Y axes using Bresenham's algorithm
     setcolor(BLACK);
     bresenhamLine(left_margin, bottom_margin, right_margin, bottom_margin, BLACK); // X-Axis
     bresenhamLine(left_margin, bottom_margin, left_margin, top_margin, BLACK); // Y-Axis
 
-    //X-Axis and Y-Axis Label
+    // X-Axis Label (Centered below X-Axis)
+    setcolor(GREEN);
+    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
+    char* x_label_cstr = new char[x_label.length() + 1];
+    strcpy(x_label_cstr, x_label.c_str());
+    outtextxy((left_margin + right_margin) / 2 - textwidth(x_label_cstr) / 2, bottom_margin + 20, x_label_cstr);
+    delete[] x_label_cstr;
+
+    // Y-Axis Label (Vertical on the left side)
     setcolor(GREEN);
     settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
-    outtextxy(left_margin - 70, (top_margin + bottom_margin) / 2, y_label);
+    char* y_label_cstr = new char[y_label.length() + 1];
+    strcpy(y_label_cstr, y_label.c_str());
+    outtextxy(left_margin - textwidth(y_label_cstr) - 10, (top_margin + bottom_margin) / 2, y_label_cstr);
+    delete[] y_label_cstr;
 
-    settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
-    outtextxy((left_margin + right_margin) / 2, bottom_margin + 40, x_label);
-
-    // Display title at the top-center
+    // Title (Centered at the top)
     setcolor(BLACK);
     settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 2);
-    outtextxy(getmaxx() / 2 - textwidth(title) / 2, top_margin - 40, title);
-   
+    char* title_cstr = new char[title.length() + 1];
+    strcpy(title_cstr, title.c_str());
+    outtextxy(getmaxx() / 2 - textwidth(title_cstr) / 2, top_margin - 40, title_cstr);
+    delete[] title_cstr;
+
     // Draw X and Y axis ticks and labels
     for (int i = 0; i <= 10; i++) {
         settextstyle(SANS_SERIF_FONT, HORIZ_DIR, 1);
@@ -74,7 +85,7 @@ void scatterPlot() {
 
         char label[10];
         sprintf(label, "%d", x_min + i * (x_max - x_min) / 10);
-        outtextxy(x_tick - textwidth(label) / 2, y_tick + 25, label); // Moved 5 more down
+        outtextxy(x_tick - textwidth(label) / 2, y_tick + 25, label); // X-axis labels
     }
 
     for (int i = 0; i <= 10; i++) {
@@ -84,9 +95,8 @@ void scatterPlot() {
 
         char label[10];
         sprintf(label, "%d", y_min + i * (y_max - y_min) / 10);
-        outtextxy(x_tick - 20, y_tick - 10, label); 
+        outtextxy(x_tick - textwidth(label) - 15, y_tick - textheight(label) / 2, label); // Y-axis labels
     }
-
 
     // Plot points on the graph
     for (int i = 0; i < num_points; i++) {

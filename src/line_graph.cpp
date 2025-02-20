@@ -19,17 +19,19 @@ void lineGraph() {
         cin >> points[i].x >> points[i].y;
     }
 
-    char x_label[50], y_label[50];
+    char x_label[100], y_label[100];
     cout << "Enter the x-axis label: ";
-    cin >> x_label;
+    cin.ignore();  // Clear any leftover input buffer
+    cin.getline(x_label, 100);
+
     cout << "Enter the y-axis label: ";
-    cin >> y_label;
+    cin.ignore();  // Clear any leftover input buffer
+    cin.getline(y_label, 100);
     char title[1000];
     cout << "Enter the title of the line graph: ";
     cin.ignore();  // Clear the input buffer
     cin.getline(title, 1000);  // Get the title correctly
     
-
     // Find min and max values for scaling
     int x_min = points[0].x, x_max = points[0].x, y_min = points[0].y, y_max = points[0].y;
     for (int i = 0; i < num_points; i++) {
@@ -52,14 +54,16 @@ void lineGraph() {
     bresenhamLine(left_margin, bottom_margin, right_margin, bottom_margin, BLACK); // X-Axis
     bresenhamLine(left_margin, bottom_margin, left_margin, top_margin, BLACK); // Y-Axis
    
-    //Set X and Y axis labels
+    // Set X and Y axis labels
     setcolor(GREEN);
 
+    // Y-axis label placement: adjust it slightly to avoid overlap with the plot
     settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
-    outtextxy(left_margin - 70, (top_margin + bottom_margin) / 2, y_label);
+    outtextxy(left_margin - 70, (top_margin + bottom_margin) / 2 - textheight(y_label) / 2, y_label);
 
+    // X-axis label placement: make sure it's centered below the axis with proper spacing
     settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
-    outtextxy((left_margin + right_margin) / 2, bottom_margin + 40, x_label);
+    outtextxy((left_margin + right_margin) / 2 - textwidth(x_label) / 2, bottom_margin + 40, x_label);
 
     // Display title at the top-center
     setcolor(BLACK);
