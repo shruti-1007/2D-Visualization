@@ -1,7 +1,7 @@
 #include <graphics.h>
 #include <iostream>
 #include "bargraph.cpp"
-#include "bezier.cpp"
+#include "Algorithms/bezier.cpp"
 #include "pie_chart.cpp"
 #include "scatterplot.cpp"
 #include "line_graph.cpp"

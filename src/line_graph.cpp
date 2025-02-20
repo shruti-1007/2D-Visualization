@@ -3,9 +3,9 @@
 #include <cmath>
 #include <conio.h>
 #include <vector>
-#include "bresenham.h"
-#include "midpointcircle.h"
-#include "floodfill.cpp"
+#include "Algorithms/bresenham.h"
+#include "Algorithms/midpointcircle.h"
+#include "Algorithms/floodfill.cpp"
 using namespace std;
 
 void lineGraph() {

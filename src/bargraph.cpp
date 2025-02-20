@@ -1,7 +1,7 @@
 #include <graphics.h>
 #include <iostream>
 #include <string>
-#include "ddaAlgorithm.cpp"
+#include "Algorithms/ddaAlgorithm.cpp"
 using namespace std;
 
 // Function to draw the bar chart

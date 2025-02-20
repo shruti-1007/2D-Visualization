@@ -1,7 +1,7 @@
 #include<graphics.h>
 #include<iostream>
 #include<cmath>
-#include"midpointcircle.cpp"
+#include"Algorithms/midpointcircle.cpp"
 #define PI 3.141592653589793
 using namespace std;
 
