@@ -47,7 +47,7 @@ void draw_elliptical_pie_chart(int values[], string categories[], int n, int cx,
     }
 }
 
-// Function to draw the legend at the right side
+// Function to draw the legend 
 void draw_legend(string categories[], int n, int legend_x, int legend_y) {
     int box_size = 15;  // Size of color boxes
     int spacing = 25;   // Spacing between legend entries
@@ -65,7 +65,7 @@ void draw_legend(string categories[], int n, int legend_x, int legend_y) {
     }
 }
 
-// Function to draw a 3D Pie Chart with a legend
+// Function to draw a 3D Pie Chart
 void Draw3dpie() {
     int n;
     string title;
@@ -99,14 +99,14 @@ void Draw3dpie() {
 
     // Display title
     setcolor(WHITE);
-    outtextxy(cx - 100, cy - radius - 50, (char*)title.c_str()); // Moved title slightly up
+    outtextxy(cx - 100, cy - radius - 50, (char*)title.c_str()); 
 
     // Draw the 3D Elliptical Pie Chart
     draw_elliptical_pie_chart(values, categories, n, cx, cy, radius);
 
     // Draw legend on the right side of the pie chart
-    int legend_x = cx + radius + 60;  // Position legend slightly to the right
-    int legend_y = cy - (n * 15);     // Adjust vertical alignment
+    int legend_x = cx + radius + 60;  
+    int legend_y = cy - (n * 15);     
 
     draw_legend(categories, n, legend_x, legend_y);
 
