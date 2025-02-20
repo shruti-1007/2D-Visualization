@@ -1,6 +1,6 @@
 # 2D-Visualization
 ## Project Overview
-This project is a comprehensive 2D data visualization dashboard built using C++ and the graphics.h library. It allows users to create various types of data visualizations including bar charts, pie charts, line graphs, scatter plots, and Bezier curves. The application processes user input data and renders graphical representations through a menu-driven interface.
+This project is a simple 2D data visualization dashboard built using C++ and the graphics.h library. It allows users to create various types of data visualizations including bar charts, pie charts, line graphs, scatter plots, and Bezier curves. The application processes user input data and renders graphical representations through a menu-driven interface.
 
 ### Main Program Flow
 ```
