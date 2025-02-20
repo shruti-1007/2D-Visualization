@@ -72,6 +72,7 @@ This project is a simple 2D data visualization dashboard built using C++ and the
 ```
 ### Outputs
 ![Bar Graph](images/bargraph.png)
-![Pie Chart](images/piechart.png)
+![2D Pie Chart](images/2dpie.png)
+![3D Pie Chart](images/3dpie.png)
 ![Scatter Plot](images/scatter.png)
 ![Line Graph](images/linegraph.png)
