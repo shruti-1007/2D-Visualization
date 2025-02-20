@@ -76,3 +76,4 @@ This project is a simple 2D data visualization dashboard built using C++ and the
 ![3D Pie Chart](images/3dpie.png)
 ![Scatter Plot](images/scatter.png)
 ![Line Graph](images/linegraph.png)
+![Bezier Curve](images/bezier.png)
