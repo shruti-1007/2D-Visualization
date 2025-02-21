@@ -18,18 +18,16 @@ void lineGraph() {
         cout << "Enter x and y coordinates for point " << i + 1 << ": ";
         cin >> points[i].x >> points[i].y;
     }
-
+    cin.ignore();  // Clear any leftover input buffer
     char x_label[100], y_label[100];
     cout << "Enter the x-axis label: ";
-    cin.ignore();  // Clear any leftover input buffer
     cin.getline(x_label, 100);
 
     cout << "Enter the y-axis label: ";
-    cin.ignore();  // Clear any leftover input buffer
+
     cin.getline(y_label, 100);
     char title[1000];
-    cout << "Enter the title of the line graph: ";
-    cin.ignore();  // Clear the input buffer
+    cout << "Enter the title of the graph: ";
     cin.getline(title, 1000);  // Get the title correctly
     
     // Find min and max values for scaling

@@ -65,7 +65,7 @@ void scatterPlot() {
     settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
     char* y_label_cstr = new char[y_label.length() + 1];
     strcpy(y_label_cstr, y_label.c_str());
-    outtextxy(left_margin - textwidth(y_label_cstr) - 05, (top_margin + bottom_margin) / 2, y_label_cstr);
+    outtextxy(left_margin - 55, (top_margin + bottom_margin) / 2 + 10, y_label_cstr);
     delete[] y_label_cstr;
 
     // Title (Centered at the top)
