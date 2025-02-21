@@ -57,7 +57,7 @@ void scatterPlot() {
     settextstyle(SIMPLEX_FONT, HORIZ_DIR, 1);
     char* x_label_cstr = new char[x_label.length() + 1];
     strcpy(x_label_cstr, x_label.c_str());
-    outtextxy((left_margin + right_margin) / 2 - textwidth(x_label_cstr) / 2, bottom_margin + 20, x_label_cstr);
+    outtextxy((left_margin + right_margin) / 2 - textwidth(x_label_cstr) / 2, bottom_margin + 40, x_label_cstr);
     delete[] x_label_cstr;
 
     // Y-Axis Label (Vertical on the left side)
@@ -65,7 +65,7 @@ void scatterPlot() {
     settextstyle(SIMPLEX_FONT, VERT_DIR, 1);
     char* y_label_cstr = new char[y_label.length() + 1];
     strcpy(y_label_cstr, y_label.c_str());
-    outtextxy(left_margin - textwidth(y_label_cstr) - 10, (top_margin + bottom_margin) / 2, y_label_cstr);
+    outtextxy(left_margin - textwidth(y_label_cstr) - 05, (top_margin + bottom_margin) / 2, y_label_cstr);
     delete[] y_label_cstr;
 
     // Title (Centered at the top)
