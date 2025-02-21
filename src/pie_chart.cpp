@@ -23,6 +23,7 @@ void drawPiechart(int xc, int yc, int radius, double percentage[], string catego
         startAngle += sweepAngle; // Move to the next slice
     }
 
+     
     // Display the title at the top
     setcolor(BLACK);
     outtextxy(xc - 60, yc - radius - 30, (char*)title.c_str());  // Adjust position for title display
@@ -77,7 +78,7 @@ void pie_chart() {
     if (sumPercentage < 100) {
         percentage[n - 1] += (100 - sumPercentage);
     }
-
+    drawCircle(xc, yc, radius, BLACK);  // Draw the outer circle
     drawPiechart(xc, yc, radius, percentage, categories, n, title);
 }
 
