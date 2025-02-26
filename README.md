@@ -81,5 +81,5 @@ As a part of our Computer Graphics project, we have developed a simple 2D data v
 
 - [Shristi Pokhrel](https://github.com/Shri-29)
 - [Shruti Maharjan](https://github.com/shruti-1007)
-- [Swarnima Khadka](https://github.com/Swarnima-Khadka)
+- [Swarnima Khadka](https://github.com/Swarnima-Khadka1)
 - [Yurisha Bajracharya](https://github.com/yurisha-bajracharya)
